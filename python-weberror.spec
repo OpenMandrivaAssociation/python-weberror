@@ -1,19 +1,17 @@
 %define tarname	WebError
-%define name	python-weberror
-%define version 0.10.3
-%define release %mkrel 1
 
 Summary:	Web error handling and exception catching for Python
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
+Name:		python-weberror
+Version:	0.10.3
+Release:	2
 Source0:	http://pypi.python.org/packages/source/W/%{tarname}/%{tarname}-%{version}.tar.gz
 License:	MIT
 Group:		Development/Python
 Url:		http://pypi.python.org/pypi/WebError/
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildArch:	noarch
-Requires:	python-tempita, python-webob, python-pygments
+Requires:	python-tempita
+Requires:	python-webob
+Requires:	python-pygments
 Requires:	python-paste >= 1.7.1
 BuildRequires:	python-setuptools
 
@@ -25,15 +23,19 @@ exception catching.
 %setup -q -n %{tarname}-%{version}
 
 %install
-%__rm -rf %{buildroot}
 find . -type f -exec chmod 644 {} \;
 find . -type d -exec chmod 755 {} \;
 PYTHONDONTWRITEBYTECODE= %__python setup.py install --root=%{buildroot} --record=FILE_LIST
-
-%clean
-%__rm -rf %{buildroot}
+sed -i 's/.*egg-info$//' FILE_LIST
 
 %files -f FILE_LIST
-%defattr(-,root,root)
 %doc CHANGELOG LICENSE
+
+
+
+%changelog
+* Thu Mar 31 2011 Lev Givon <lev@mandriva.org> 0.10.3-1mdv2011.0
++ Revision: 649467
+- import python-weberror
+
 
