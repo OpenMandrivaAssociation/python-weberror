@@ -3,7 +3,7 @@
 Summary:	Web error handling and exception catching for Python
 Name:		python-weberror
 Version:	0.10.3
-Release:	2
+Release:	3
 Source0:	http://pypi.python.org/packages/source/W/%{tarname}/%{tarname}-%{version}.tar.gz
 License:	MIT
 Group:		Development/Python
