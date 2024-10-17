@@ -7,7 +7,7 @@ Release:	3
 Source0:	http://pypi.python.org/packages/source/W/%{tarname}/%{tarname}-%{version}.tar.gz
 License:	MIT
 Group:		Development/Python
-Url:		http://pypi.python.org/pypi/WebError/
+Url:		https://pypi.python.org/pypi/WebError/
 BuildArch:	noarch
 Requires:	python-tempita
 Requires:	python-webob
